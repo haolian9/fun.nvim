@@ -50,4 +50,15 @@ end
 
 function M.copy() vim.fn.setreg("+", random_one()) end
 
-return M
+function M.paste()
+  local winid = api.nvim_get_current_win()
+  local bufnr = api.nvim_win_get_buf(winid)
+  local cursor = api.nvim_win_get_cursor(winid)
+  local lines = vim.split(random_one(), "\n")
+  table.insert(lines, 1, "")
+  table.insert(lines, 1, "--")
+  api.nvim_buf_set_lines(bufnr, -1, -1, false, lines)
+  api.nvim_win_set_cursor(winid, cursor)
+end
+
+return setmetatable(M, { __call = M.paste })

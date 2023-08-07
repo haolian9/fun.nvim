@@ -10,6 +10,7 @@ https://moolenaar.net/fun.html
 * nvim 0.9.*
 
 ## usage
+* `nnoremap <F5> <cmd>lua require'fun.fortunes'()<cr>`
 * `:lua require'fun.cheerup'()`
-* `:lua require'fun.fortunes'.show()`
-* `:lua require'fun.fortunes'.copy()`
+* `:lua require'fun.fortunes'()`
+* `:lua require'fun.fortunes'.show/copy/paste()`
